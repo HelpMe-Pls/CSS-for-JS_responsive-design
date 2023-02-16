@@ -1,24 +1,32 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from 'react'
+import styled from 'styled-components/macro'
 
-import Header from '../Header';
-import ShoeIndex from '../ShoeIndex';
+import Header from '../Header'
+import ShoeIndex from '../ShoeIndex'
+import { BREAKPOINTS } from '../../constants'
 
 const App = () => {
-  const [sortId, setSortId] = React.useState('newest');
+	const [sortId, setSortId] = React.useState('newest')
 
-  return (
-    <>
-      <Header />
-      <Main>
-        <ShoeIndex sortId={sortId} setSortId={setSortId} />
-      </Main>
-    </>
-  );
-};
+	return (
+		<>
+			<Header />
+			<Main>
+				<ShoeIndex sortId={sortId} setSortId={setSortId} />
+			</Main>
+		</>
+	)
+}
 
 const Main = styled.main`
-  padding: 64px 32px;
-`;
+	padding: 64px 32px;
 
-export default App;
+	@media ${BREAKPOINTS.tabletAndSmaller} {
+		padding: 48px 32px;
+	}
+	@media ${BREAKPOINTS.phoneAndSmaller} {
+		padding: 48px 16px;
+	}
+`
+
+export default App

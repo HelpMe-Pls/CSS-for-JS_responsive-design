@@ -64,12 +64,18 @@ const MainHeader = styled.div`
 		border-top: 4px solid ${COLORS.gray[900]};
 	}
 	@media ${BREAKPOINTS.phoneAndSmaller} {
-		padding: 18px 16px;
+		/* For maintainability: you only need to update top-bottom padding once, from the common padding above */
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 `
 
 const LogoWrapper = styled.div`
 	flex: 1;
+
+	@media ${BREAKPOINTS.tabletAndSmaller} {
+		flex: revert;
+	}
 `
 
 const DesktopNav = styled.nav`
@@ -89,6 +95,7 @@ const SmallerDisplays = styled.div`
 		display: flex;
 		gap: 32px;
 		align-self: stretch;
+		margin-left: auto;
 	}
 	@media ${BREAKPOINTS.phoneAndSmaller} {
 		gap: 16px;
