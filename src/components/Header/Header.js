@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-import { COLORS, WEIGHTS, BREAKPOINTS } from '../../constants'
+import { WEIGHTS, BREAKPOINTS } from '../../constants'
 import Logo from '../Logo'
 import SuperHeader from '../SuperHeader'
 import MobileMenu from '../MobileMenu'
@@ -24,7 +24,7 @@ const Header = () => {
 					<Logo />
 				</LogoWrapper>
 				<DesktopNav>
-					<NavLink href="/sale">Sale</NavLink>
+					<NavLink href="/sale">Sales</NavLink>
 					<NavLink href="/new">New&nbsp;Releases</NavLink>
 					<NavLink href="/men">Men</NavLink>
 					<NavLink href="/women">Women</NavLink>
@@ -57,11 +57,11 @@ const MainHeader = styled.div`
 	display: flex;
 	align-items: baseline;
 	padding: 18px 32px;
-	height: 72px;
-	border-bottom: 1px solid ${COLORS.gray[300]};
+	overflow: auto;
+	border-bottom: 1px solid var(--gray-100);
 
 	@media ${BREAKPOINTS.tabletAndSmaller} {
-		border-top: 4px solid ${COLORS.gray[900]};
+		border-top: 4px solid var(--gray-900);
 	}
 	@media ${BREAKPOINTS.phoneAndSmaller} {
 		/* For maintainability: you only need to update top-bottom padding once, from the common padding above */
@@ -80,7 +80,7 @@ const LogoWrapper = styled.div`
 
 const DesktopNav = styled.nav`
 	display: flex;
-	gap: 48px;
+	gap: clamp(1rem, 9.2vw - 4.5rem, 3rem);
 	margin: 0px 48px;
 
 	@media ${BREAKPOINTS.tabletAndSmaller} {
@@ -113,11 +113,11 @@ const NavLink = styled.a`
 	font-size: 1.125rem;
 	text-transform: uppercase;
 	text-decoration: none;
-	color: ${COLORS.gray[900]};
+	color: var(--gray-900);
 	font-weight: ${WEIGHTS.medium};
 
 	&:first-of-type {
-		color: ${COLORS.secondary};
+		color: var(--color-secondary);
 	}
 `
 
